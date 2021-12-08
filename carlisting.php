@@ -1,5 +1,35 @@
 <?php
 include "header.php";
+if(isset($_GET['Search']))
+{
+  $fields = array('Brands', 'Model', 'S_YearMonth', 'Stock_id', 'bodytype');
+  $conditions = array();
+
+  // loop through the defined fields
+  foreach($fields as $field){
+      // if the field is set and not empty
+      if(isset($_GET[$field]) && $_GET[$field] != '') {
+          // create a new condition while escaping the value inputed by the user (SQL Injection)
+          $conditions[] = "`$field` LIKE '%" . mysqli_real_escape_string($conn,$_GET[$field]) . "%'";
+      }
+  }
+
+  // builds the query
+  $query = "SELECT * FROM cardetails ";
+  // if there are conditions defined
+  if(count($conditions) > 0) {
+      // append the conditions
+      $query .= "WHERE " . implode (' AND ', $conditions); // you can change to 'OR', but I suggest to apply the filters cumulative
+  }
+}
+  // define the list of fields
+  else {
+    $query = "SELECT * FROM cardetails ";
+
+  }
+
+ 
+
 ?>
 <!--=================================
  header -->
@@ -62,7 +92,7 @@ product-listing  -->
         <div class="row">
             
        </div>
-       <section class="search white-bg">
+<section class="search white-bg">
   <div class="container">
    <div class="search-block">
     <div class="row">
@@ -71,93 +101,100 @@ product-listing  -->
        <div class="col-md-4">
         <span>Select make</span>
           <div class="selected-box">
-            <select class="selectpicker">
-            <option>Make </option>
-            <option>BMW</option>
-            <option>Honda </option>
-            <option>Hyundai </option>
-            <option>Nissan </option>
-            <option>Mercedes Benz </option>
+            <select id="test" class=" selectpicker  target" >
+            <?php 
+              $queryfetchdetails=mysqli_query($conn,"select * from brands");
+          ?>
+          <option disabled selected value="">Please Select</option>
+          <?php 
+              while($rowfetchdetails=mysqli_fetch_array($queryfetchdetails)){
+          ?>
+          <option value="<?php echo $rowfetchdetails[0]?>"><?php echo $rowfetchdetails[1]?></option>
+          <?php
+              }
+          ?>
            </select>
           </div>
         </div>
         <div class="col-md-4">
         <span>Select model</span>
-          <div class="selected-box">
-           <select class="selectpicker">
-            <option>Model</option>
-            <option>3-Series</option>
-            <option>Carrera</option>
-            <option>GT-R</option>
-            <option>Cayenne</option>
-            <option>Mazda6</option>
-            <option>Macan</option>
+          <div class="selected-box" id="model">
+           <select class="selectpicker" id="modelvalue">
+                <option value="">PLEASE SELECT BRAND </option>
            </select>
          </div>
         </div>
         <div class="col-md-4">
-        <span>Select yar</span>
+        <span>Select year</span>
          <div class="selected-box">
-           <select class="selectpicker">
-            <option>Year</option>
-            <option>2010</option>
-            <option>2011</option>
-            <option>2012</option>
-            <option>2013</option>
-            <option>2014</option>
-            <option>2015</option>
-            <option>2016</option>
+           <select class="selectpicker" id="modelyear">
+            <option selected value="">Year</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
            </select>
           </div>
         </div>
         <div class="col-md-4">
         <span>Select body style</span>
         <div class="selected-box">
-         <select class="selectpicker">
-            <option>Body style</option>
-            <option>2dr Car</option>
-            <option>4dr Car</option>
-            <option>Convertible</option>
-            <option>Sedan</option>
-            <option>Sports Utility</option>
+         <select class="selectpicker" id="typeofcar">
+        <option value="">Type : </option>
+        <option value="Sedan">Sedan</option>
+        <option value="Hatchback">Hatchback</option>
+        <option value="Station Wagon">Station Wagon</option>
+        <option value="Coupe">Coupe</option>
+        <option value="Open Top">Open Top</option>
+        <option value="SUV">SUV</option>
+        <option value="MUV">MUV</option>
+        <option value="Mini Van">Mini Van</option>
+        <option value="Van">Van</option>
+        <option value="Pickup">Pickup</option>
+        <option value="Truck">Truck</option>
+        <option value="Machinery">Machinery</option>
+        <option value="Tractor">Tractor</option>
+       
            </select>
           </div>
         </div>
         <div class="col-md-4">
-       <span>Select vehicle status</span>
-         <div class="selected-box">
-           <select class="selectpicker">
-            <option>Vehicle Status</option>
-            <option>Condition</option>
-            <option>All Conditions</option>
-            <option>Condition</option>
-            <option>Brand New</option>
-            <option>Slightly Used</option>
-            <option>Used</option> 
-           </select>
-         </div>
+      
         </div>
       </div>
      </div>
     <div class="col-md-4">
      <div class="price-slide">
         <div class="price">
-         <label for="amount">Price Range</label>
-          <input type="text" id="amount" class="amount" value="$50 - $300" />
-          <div id="slider-range"></div>
-          <a class="button" href="#">Search the Vehicle</a>
-          <a class="link" href="#">ADVANCED SEARCH</a>
+        <span>Stock Id</span>
+        
+           <input type="text"   style="border: 1px solid #e3e3e3; color: #777;  display: block; line-height: 14px; max-width: 100%; min-width: 100%; padding: 14px;" id="stockid" value="">
+        
+         
+          <a class="button btn-search" href="#">Search the Vehicle</a>
+          <a class="link" href="#"></a>
         </div>
        </div>
     </div>
    </div>
   </div>
  </div>
-</section>   
+</section>      
+   
         <div class="row">
         <?php 
-     $query=mysqli_query($conn,"SELECT * FROM `cardetails` ORDER BY C_id DESC ");
-     while($row=mysqli_fetch_array($query))
+                //echo $query;
+
+        $quer1=mysqli_query($conn,$query);
+     while($row=mysqli_fetch_array($quer1))
   {
     $querymodel=mysqli_fetch_row(mysqli_query($conn,"SELECT * FROM `model_car` where model_id = '".$row[2]."'"));
     $queryimages=mysqli_fetch_row(mysqli_query($conn,"SELECT * FROM `carimage` where I_Car = '".$row[1]."' Limit 1 "));
@@ -212,7 +249,47 @@ product-listing  -->
  
 <!--=================================
  footer -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 
-<?php
+ <?php 
 include "footer.php";
+
 ?>
+ <script>
+$( ".target" ).change(function() {
+  var val=this.value;
+  $.ajax({
+	type: "POST",
+	url: "modeldd.php",
+	data:'make_id='+val,
+	success: function(data){
+		$("#model").html(data);
+	}
+	});
+});
+
+
+  </script>
+<script>
+$( ".btn-search" ).click(function() {
+  var select = document.getElementById('test').value;
+var selectmodel = document.getElementById('modelvalue').value;
+var selectyear = document.getElementById('modelyear').value;
+var stockid = document.getElementById('stockid').value;
+var typeofcar = document.getElementById('typeofcar').value;
+
+var index = 1;
+window.location = 'carlisting.php?Brands=' + select + '&Model=' + selectmodel + '&S_YearMonth=' + selectyear + '&Stock_id=' + stockid +  '&bodytype=' + typeofcar +  '&Search=' + index;
+
+  //  $.ajax({
+	//  type: "POST",
+	//  url: "carlisting.php",
+  //  data:{'maker': select, 'model': selectmodel, 'year': selectyear, 'stockid': stockid, 'typeofcar': typeofcar, 'page': index},
+	//  success: function(data){
+	//  	$("#model").html(data);
+	//  }
+  //   });
+});
+
+
+  </script>

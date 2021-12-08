@@ -7,23 +7,6 @@ include "header.php";
 
 <!--=================================
  inner-intro -->
- 
- <section class="inner-intro bg-1 bg-overlay-black-70">
-  <div class="container">
-     <div class="row text-center intro-title">
-           <div class="col-md-6 text-md-left d-inline-block">
-             <!-- <h1 class="text-white">Contact us </h1> -->
-           </div>
-           <div class="col-md-6 text-md-right float-right">
-             <!-- <ul class="page-breadcrumb">
-                <li><a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="#">pages</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><span>Contact us 01</span> </li>
-             </ul> -->
-           </div>
-     </div>
-  </div>
-</section>
 
 <!--=================================
  inner-intro -->
@@ -48,28 +31,28 @@ include "header.php";
        <div class="contact-box text-center">
           <i class="fa fa-map-marker"></i>
           <h5>Address</h5>
-          <p>220E Front St. Burlington NC 215</p>
+          <p>HYOGO KEN, KOBE, SHI NADA KU FUKADA CHO 4-1-39</p>
         </div>
       </div>
       <div class="col-lg-3 col-md-6">
        <div class="contact-box text-center">
           <i class="fa fa-phone"></i>
           <h5>Phone</h5>
-          <p> (007) 123 456 7890</p>
+          <p><br> +81345720138</p>
         </div>
       </div>
       <div class="col-lg-3 col-md-6">
        <div class="contact-box text-center">
           <i class="fa fa-envelope-o"></i>
           <h5>Email</h5>
-          <p> support@website.com</p>
+          <p> <br>info@aarmotorjapan.com</p>
         </div>
       </div>
       <div class="col-lg-3 col-md-6">
        <div class="contact-box text-center">
           <i class="fa fa-fax"></i>
           <h5>Fax</h5>
-          <p>(007) 123 456 7890</p>
+          <p><br>+81345720138</p>
         </div>
       </div>
     </div>
@@ -169,11 +152,6 @@ include "header.php";
 <!--=================================
  contact-map -->
 
- <section class="contact-map">
-  <div class="container-fluid">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.017231421863!2d-79.43780268425046!3d36.09306798010035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88532bae09664ccb%3A0xaa6b8f98d3fb8135!2s220+E+Front+St%2C+Burlington%2C+NC+27215%2C+USA!5e0!3m2!1sen!2sin!4v1475045272926" allowfullscreen></iframe>
-  </div>
- </section>
 
 <!--=================================
  contact-map -->

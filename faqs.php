@@ -48,12 +48,11 @@ include "header.php";
         <div id="tabs">
               <ul class="tabs text-center">
                  <li data-tabs="tab1" class="active"> <span aria-hidden="true" class="icon-diamond"></span> General Information</li>
-                 <li data-tabs="tab2"><span aria-hidden="true" class="icon-list"></span>Features & Options</li>
-                 <li data-tabs="tab3"> <span aria-hidden="true" class="icon-equalizer"></span> Vehicle Overview</li>
+               
                 </ul>
              <div id="tab1" class="tabcontent accordion"> 
               <div class="accordion-title">
-                     <a href="#">Is SKT Japan a reliable company to buy Japanese vehicles from?</a>
+                     <a href="#">Is AAR MOTOR JAPAN a reliable company to buy Japanese vehicles from?</a>
                 </div>
                 <div class="accordion-content"> 
                    <!-- <h6>You will begin to realize why this exercise?</h6> -->
@@ -66,7 +65,7 @@ include "header.php";
                      </ul>
                 </div>
                 <div class="accordion-title">
-                     <a href="#">How can I buy a car from SKY Japan?</a>
+                     <a href="#">How can I buy a car from AARMOTOR JAPAN?</a>
                 </div>
                 <div class="accordion-content"> 
                    <!-- <h6>You will begin to realize why this exercise?</h6> -->
@@ -78,10 +77,8 @@ include "header.php";
                        <li>4. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
                      </ul>
                 </div>
-              </div>
-              <div id="tab2" class="tabcontent accordion"> 
                 <div class="accordion-title">
-                     <a href="#">Do you have any criteria become a registered member of SKT?</a>
+                     <a href="#">Do you have any criteria become a registered member of AARMOTOR JAPAN?</a>
                 </div>
                 <div class="accordion-content"> 
                    <h6>You will begin to realize why this exercise?</h6>
@@ -106,9 +103,7 @@ include "header.php";
                        <li>4. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
                      </ul>
                 </div>
-              </div>
-              <div id="tab3" class="tabcontent accordion"> 
-                 <div class="accordion-title">
+                <div class="accordion-title">
                      <a href="#">Who should I talk to about my question?</a>
                 </div>
                 <div class="accordion-content"> 
@@ -135,7 +130,7 @@ include "header.php";
                      </ul>
                 </div>
                  <div class="accordion-title">
-                     <a href="#">What payment methods are accepted by SKT?</a>
+                     <a href="#">What payment methods are accepted by AARMOTOR JAPAN?</a>
                 </div>
                 <div class="accordion-content"> 
                    <h6>You will begin to realize why this exercise?</h6>
@@ -148,6 +143,7 @@ include "header.php";
                      </ul>
                 </div>
               </div>
+            
           </div>
       </div>
     </div>

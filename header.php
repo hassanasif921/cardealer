@@ -42,19 +42,7 @@
 <!-- responsive -->
 <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
- <script>
-   window.onload = function() {
-   
 
-    if (window.jQuery) {  
-        // jQuery is loaded  
-        alert("Yeah!");
-    } else {
-        // jQuery is not loaded
-        alert("Doesn't Work");
-    }
-}
-   </script>
 </head>
 
 <body>
@@ -124,9 +112,11 @@
                       <!-- active class -->
 
         <li class="active"><a href="index.php">Home</a></li>
-        <li ><a href="carlisting.php">Car listing</a></li>
-        <li ><a href="faqs.php">FAQ's</a></li>
         <li ><a href="about.php">About Us</a></li>
+        <li ><a href="carlisting.php">Car listing</a></li>
+        <li ><a href="howtoorder.php">How To Order</a></li>
+
+        <li ><a href="faqs.php">FAQ's</a></li>
         <li ><a href="contact.php">Contact</a></li>
 
         </ul>

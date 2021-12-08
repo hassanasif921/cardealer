@@ -645,20 +645,17 @@ var selectyear = document.getElementById('modelyear').value;
 var stockid = document.getElementById('stockid').value;
 var typeofcar = document.getElementById('typeofcar').value;
 
-  alert(select);
-  alert(selectmodel);
-  alert(selectyear);
-  alert(stockid);
-  alert(typeofcar);
+var index = 1;
+window.location = 'carlisting.php?Brands=' + select + '&Model=' + selectmodel + '&S_YearMonth=' + selectyear + '&Stock_id=' + stockid +  '&bodytype=' + typeofcar +  '&Search=' + index;
 
-  // $.ajax({
-	// type: "POST",
-	// url: "modeldd.php",
-	// data:'make_id='+val,
-	// success: function(data){
-	// 	$("#model").html(data);
-	// }
-	// });
+  //  $.ajax({
+	//  type: "POST",
+	//  url: "carlisting.php",
+  //  data:{'maker': select, 'model': selectmodel, 'year': selectyear, 'stockid': stockid, 'typeofcar': typeofcar, 'page': index},
+	//  success: function(data){
+	//  	$("#model").html(data);
+	//  }
+  //   });
 });
 
 
